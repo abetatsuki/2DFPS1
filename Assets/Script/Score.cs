@@ -20,14 +20,14 @@ public class Score : MonoBehaviour
     {
 
         textMeshProUGUI = GetComponent<TextMeshProUGUI>();
-
+        score = inspectorscore;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        score=inspectorscore;
+        
 
         textMeshProUGUI.text = ("Score") + score;
     }

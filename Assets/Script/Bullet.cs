@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int score1;
+  
     
   
     public float speed = 10f; // ’e‚ÌƒXƒs[ƒh
@@ -29,8 +29,9 @@ public class Bullet : MonoBehaviour
        
         if (other.CompareTag("Enemy"))  // "Enemy" ƒ^ƒO‚Ì‚Æ‚«‚¾‚¯“G‚ğÁ‚·
         {
-            Debug.Log("Hit enemy: " + other.name);
+            Debug.Log("Hit enemy: " + other.name+"“|‚µ‚Ü‚µ‚½");
             Score.score++;
+         
 
             Destroy(other.gameObject);   // “G‚ğÁ‚·
             Destroy(this.gameObject);    // ’e‚ğÁ‚·
