@@ -27,8 +27,7 @@ public class PauseMenuController : MonoBehaviour
         menuUI.SetActive(true);      // メニュー表示
         Time.timeScale = 0f;         // ゲーム停止
         isPaused = true;
-        Cursor.visible = true;       // マウスカーソル表示（必要なら）
-        Cursor.lockState = CursorLockMode.None;
+        
     }
 
     public void Resume()
@@ -36,8 +35,7 @@ public class PauseMenuController : MonoBehaviour
         menuUI.SetActive(false);     // メニュー非表示
         Time.timeScale = 1f;         // ゲーム再開
         isPaused = false;
-        Cursor.visible = false;      // カーソル隠す（必要なら）
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     public void QuitGame()
