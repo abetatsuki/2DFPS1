@@ -19,7 +19,11 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector2.up * speed * Time.deltaTime);
-        
+        if (transform.position.y > 10f)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
 
