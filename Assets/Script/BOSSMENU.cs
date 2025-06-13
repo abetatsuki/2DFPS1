@@ -36,6 +36,7 @@ public class BOSSMENU : MonoBehaviour
             if (menuItems[selectedIndex].text == "START")
             {
                 SceneManager.LoadScene("SampleScene");
+
             }
         }
     }

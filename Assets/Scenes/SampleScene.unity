@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 710374480}
   - component: {fileID: 710374479}
   m_Layer: 5
-  m_Name: Menu
+  m_Name: END
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -974,7 +974,7 @@ GameObject:
   - component: {fileID: 852485704}
   - component: {fileID: 852485703}
   m_Layer: 5
-  m_Name: Menu (1)
+  m_Name: START
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1108,7 +1108,7 @@ GameObject:
   - component: {fileID: 1020488486}
   - component: {fileID: 1020488485}
   m_Layer: 5
-  m_Name: Menu (2)
+  m_Name: OPTION
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1533,7 +1533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1792814272}
-  - component: {fileID: 1792814271}
+  - component: {fileID: 1792814273}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -1541,22 +1541,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1792814271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792814270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691c2307f797dca4c95e45f9a35b26a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuItems:
-  - {fileID: 852485703}
-  - {fileID: 710374479}
-  - {fileID: 1020488485}
 --- !u!4 &1792814272
 Transform:
   m_ObjectHideFlags: 0
@@ -1572,6 +1556,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792814273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792814270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00a8a3d3a1fdcc4aa43919e15d5670a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuUI: {fileID: 1247141400}
+  menuItems:
+  - {fileID: 1020488485}
+  - {fileID: 710374479}
+  - {fileID: 852485703}
 --- !u!1 &1825156787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,7 +1650,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1844981251}
-  - component: {fileID: 1844981252}
   m_Layer: 0
   m_Name: z
   m_TagString: Untagged
@@ -1673,19 +1673,6 @@ Transform:
   - {fileID: 1247141401}
   m_Father: {fileID: 42753494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1844981252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844981250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38afe7fd99b4dc438a94c86fe67754a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuUI: {fileID: 1247141400}
 --- !u!1 &2024498949
 GameObject:
   m_ObjectHideFlags: 0
