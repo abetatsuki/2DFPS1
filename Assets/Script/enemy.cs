@@ -28,7 +28,9 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-       
+        UpdateHpBar();
+
+
     }
     public void TakeDamage(int damage)
     {

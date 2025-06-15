@@ -220,7 +220,7 @@ MonoBehaviour:
   speed: 1
   hp: 3
   currentHp: 3
-  hpBarForeground: {fileID: 4026943887218987789}
+  hpBarForeground: {fileID: 1366824355412469526}
 --- !u!50 &8463475634778031341
 Rigidbody2D:
   serializedVersion: 4
