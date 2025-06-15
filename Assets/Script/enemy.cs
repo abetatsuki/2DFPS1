@@ -28,10 +28,11 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+       
     }
     public void TakeDamage(int damage)
     {
-        currentHp= damage;
+        currentHp -= damage;
         currentHp = Mathf.Clamp(currentHp, 0, hp);
         Debug.Log("Enemy HP: " + hp);
 
