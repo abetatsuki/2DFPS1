@@ -6,8 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 3f;
     private Rigidbody2D rb;
-    public int hp = 3;
-    public int currentHp = 3;
+    public int hp = 10;
+    public int currentHp ;
 
     public Transform hpBarForeground; // —ÎFƒo[‚ÌTransform
     void Start()

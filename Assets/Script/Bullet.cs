@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour
             Score.score++;
          
 
-            Destroy(other.gameObject);   // “G‚ğÁ‚·
+            // “G‚ğÁ‚·
             Destroy(this.gameObject);    // ’e‚ğÁ‚·
            
 
