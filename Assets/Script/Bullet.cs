@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
             {
                 enemy.TakeDamage(damage); // ƒ_ƒ[ƒW‚ğ—^‚¦‚é
             }
-            Score.score++;
+            
          
 
             // “G‚ğÁ‚·

@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
     TextMeshProUGUI textMeshProUGUI;
 
     public int inspectorscore;
-    public static int score;
+    public static int score; //これでエネミーで使える
    
 
 

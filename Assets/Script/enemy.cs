@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
         if (currentHp<= 0)
         {
             Destroy(gameObject); // 敵オブジェクトを消す
+            Score.score++;
         }
     }
     void UpdateHpBar()
