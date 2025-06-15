@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     public float speed = 10f; // 弾のスピード
    
     private Rigidbody2D rb;
+    public int damage = 1;
 
     void Start()
     {
@@ -33,7 +34,12 @@ public class Bullet : MonoBehaviour
        
         if (other.CompareTag("Enemy"))  // "Enemy" タグのときだけ敵を消す
         {
-            Debug.Log("Hit enemy: " + other.name+"倒しました");
+            //GetComponent<Enemy>() で「そのGameObjectにくっついてるEnemyスクリプト」を取得これで相手のスクリプトにアクセスできる
+            Enemy enemy = other.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage); // ダメージを与える
+            }
             Score.score++;
          
 
