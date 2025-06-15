@@ -6,6 +6,7 @@ public class enemy : MonoBehaviour
 {
     public float speed = 3f;
     private Rigidbody2D rb;
+    public int hp = 3;
     
 
     void Start()
@@ -23,6 +24,16 @@ public class enemy : MonoBehaviour
         if (transform.position.y < -6f)
         {
             Destroy(gameObject);
+        }
+    }
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+        Debug.Log("Enemy HP: " + hp);
+
+        if (hp <= 0)
+        {
+            Destroy(gameObject); // 敵オブジェクトを消す
         }
     }
 }
