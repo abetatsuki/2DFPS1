@@ -9,7 +9,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     private int selectedIndex = 0;
     private bool isPaused = false;
     public AudioClip SelectSound;
-
+    AudioSource audioSource;
     void Start()
     {
         menuUI.SetActive(false); // 最初は非表示
@@ -20,11 +20,7 @@ public class PauseAndBossMenuController : MonoBehaviour
         // ESCキーでポーズ
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (SelectSound != null)
-            {
-                AudioSource.PlayClipAtPoint(SelectSound, transform.position);
-                Debug.Log("ok");
-            }
+            audioSource.PlayOneShot(SelectSound);
             if (isPaused)
                 Resume();
             else
@@ -36,6 +32,7 @@ public class PauseAndBossMenuController : MonoBehaviour
             // 上キー
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
+                audioSource.PlayOneShot(SelectSound);
                 selectedIndex--;
                 if (selectedIndex < 0) selectedIndex = menuItems.Length - 1;
                 UpdateMenu();
@@ -44,6 +41,7 @@ public class PauseAndBossMenuController : MonoBehaviour
             // 下キー
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
+                audioSource.PlayOneShot(SelectSound);
                 selectedIndex++;
                 if (selectedIndex >= menuItems.Length) selectedIndex = 0;
                 UpdateMenu();
@@ -52,6 +50,7 @@ public class PauseAndBossMenuController : MonoBehaviour
             // 決定キー
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                audioSource.PlayOneShot(SelectSound);
                 ExecuteMenuItem();
             }
         }
@@ -99,6 +98,14 @@ public class PauseAndBossMenuController : MonoBehaviour
                 menuItems[i].color = Color.yellow; // 選択中
             else
                 menuItems[i].color = Color.white;  // 未選択
+        }
+    }
+    public void PlaySound(AudioClip clip, Vector3 position)
+    {
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, position);
+            Debug.Log("Sound Played: " + clip.name);
         }
     }
 }
