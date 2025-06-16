@@ -1,28 +1,28 @@
 using UnityEngine;
-using TMPro; // TextMeshPro用
+using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic; // 追加
 
 public class PauseAndBossMenuController : MonoBehaviour
 {
-    public GameObject menuUI; // ポーズメニュー全体(Canvas)
+    public GameObject menuUI;
     public GameObject gameUI;
-    public TMP_Text[] menuItems;       // TextMeshProで表示するメニュー項目
+    public TMP_Text[] menuItems;
     private int selectedIndex = 0;
     private bool isPaused = false;
     public AudioClip SelectSound;
     AudioSource audioSource;
+
     void Start()
     {
-        menuUI.SetActive(false); // 最初は非表示
-        audioSource = GetComponent<AudioSource>(); // 追加！！
+        menuUI.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        // ESCキーでポーズ
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
             if (isPaused)
                 Resume();
             else
@@ -32,81 +32,99 @@ public class PauseAndBossMenuController : MonoBehaviour
 
         if (isPaused)
         {
-            // 上キー
+            List<int> visibleIndexes = GetVisibleMenuItemIndexes();
+
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 audioSource.PlayOneShot(SelectSound);
                 selectedIndex--;
-                if (selectedIndex < 0) selectedIndex = menuItems.Length - 1;
-                UpdateMenu();
+                if (selectedIndex < 0) selectedIndex = visibleIndexes.Count - 1;
+                UpdateMenu(visibleIndexes);
             }
 
-            // 下キー
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 audioSource.PlayOneShot(SelectSound);
                 selectedIndex++;
-                if (selectedIndex >= menuItems.Length) selectedIndex = 0;
-                UpdateMenu();
+                if (selectedIndex >= visibleIndexes.Count) selectedIndex = 0;
+                UpdateMenu(visibleIndexes);
             }
 
-            // 決定キー
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 audioSource.PlayOneShot(SelectSound);
-                ExecuteMenuItem();
+                ExecuteMenuItem(visibleIndexes);
             }
         }
     }
 
     void Pause()
     {
-        menuUI.SetActive(true);   // メニュー表示
-        Time.timeScale = 0f;      // ゲーム停止
+        menuUI.SetActive(true);
+        gameUI.SetActive(false);
+        Time.timeScale = 0f;
         isPaused = true;
-        UpdateMenu();             // 最初の選択項目ハイライト
+        selectedIndex = 0;
+        UpdateMenu(GetVisibleMenuItemIndexes());
     }
 
     public void Resume()
     {
-        menuUI.SetActive(false);  // メニュー非表示
-        Time.timeScale = 1f;      // ゲーム再開
+        menuUI.SetActive(false);
+        gameUI.SetActive(false);
+        Time.timeScale = 1f;
         isPaused = false;
     }
 
-    void ExecuteMenuItem()
+    void ExecuteMenuItem(List<int> visibleIndexes)
     {
-        string selectedItem = menuItems[selectedIndex].text;
+        int realIndex = visibleIndexes[selectedIndex];
+        string selectedItem = menuItems[realIndex].text;
 
         Debug.Log(selectedItem + " が選択されました");
 
         if (selectedItem == "START")
         {
-            Time.timeScale = 1f; // 必ずゲーム速度リセット
-            SceneManager.LoadScene("SampleScene"); // シーン遷移
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("SampleScene");
         }
         else if (selectedItem == "END")
         {
             Debug.Log("ゲームを終了します");
             Application.Quit();
         }
-        else if(selectedItem == "OPTION")
+        else if (selectedItem == "OPTION")
         {
-            menuUI.SetActive(false) ;
+            menuUI.SetActive(false);
             gameUI.SetActive(true);
         }
     }
 
-    void UpdateMenu()
+    void UpdateMenu(List<int> visibleIndexes)
     {
-        // 選択中の項目だけ色変更
         for (int i = 0; i < menuItems.Length; i++)
         {
-            if (i == selectedIndex)
-                menuItems[i].color = Color.yellow; // 選択中
-            else
-                menuItems[i].color = Color.white;  // 未選択
+            menuItems[i].color = Color.white; // 全部白に戻す
         }
+
+        if (visibleIndexes.Count > 0)
+        {
+            int realIndex = visibleIndexes[selectedIndex];
+            menuItems[realIndex].color = Color.yellow; // 選択中だけ黄色
+        }
+    }
+
+    List<int> GetVisibleMenuItemIndexes()
+    {
+        List<int> visibleIndexes = new List<int>();
+        for (int i = 0; i < menuItems.Length; i++)
+        {
+            if (menuItems[i].gameObject.activeSelf && !string.IsNullOrWhiteSpace(menuItems[i].text))
+            {
+                visibleIndexes.Add(i);
+            }
+        }
+        return visibleIndexes;
     }
     public void PlaySound(AudioClip clip, Vector3 position)
     {
