@@ -13,6 +13,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     void Start()
     {
         menuUI.SetActive(false); // 最初は非表示
+        audioSource = GetComponent<AudioSource>(); // 追加！！
     }
 
     void Update()
@@ -20,11 +21,12 @@ public class PauseAndBossMenuController : MonoBehaviour
         // ESCキーでポーズ
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            audioSource.PlayOneShot(SelectSound);
+            
             if (isPaused)
                 Resume();
             else
                 Pause();
+            audioSource.PlayOneShot(SelectSound);
         }
 
         if (isPaused)
