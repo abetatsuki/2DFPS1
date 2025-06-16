@@ -1720,6 +1720,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5496398620625083049, guid: aecd131be537de24aa5ed5c3a2e7eb26, type: 3}
   spawnInterval: 1
   xRange: 8
+  EnemyScale: {fileID: 4874204041184584094, guid: aecd131be537de24aa5ed5c3a2e7eb26, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

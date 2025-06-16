@@ -20,7 +20,7 @@ public class EnemyGeneretor : MonoBehaviour
         int randomScale = Random.Range(1, 4); // 4‚ÍŠÜ‚Ü‚ê‚È‚¢‚Ì‚Å1,2,3‚Ì‚Ç‚ê‚©‚É‚È‚é
         float x = Random.Range(-xRange, xRange);
         Vector3 spawnPosition = new Vector3(x, transform.position.y, 0);
-        EnemyScale.localScale = new Vector3(1f, 1f, 1f);
+        EnemyScale.localScale = new Vector3(randomScale, randomScale, 1f);
         Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
 }
