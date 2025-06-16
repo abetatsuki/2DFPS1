@@ -44,10 +44,10 @@ public class Bullet : MonoBehaviour
             {
                 enemy.TakeDamage(damage); // ダメージを与える
             }
-            if (explosionEffect != null)
-            {
+            if (explosionEffect != null)//prefabになにかアタッチされてるなら
+            {　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　//	回転させずに（デフォルトの向きで）出す
                 GameObject effect = Instantiate(explosionEffect, transform.position, Quaternion.identity);
-                Destroy(effect, explosionEffectDuration); // 一定時間後にエフェクトを削除
+                Destroy(effect, explosionEffectDuration); // "explosionEffectDuration"秒後に消す
             }
 
             // --- 爆発音を再生 ---
