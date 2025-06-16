@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     public int hp = 10;
     public int currentHp ;
+   
 
     public Transform hpBarForeground; // óŒêFÉoÅ[ÇÃTransform
     void Start()
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
         rb.velocity = Vector2.down * speed;
         currentHp = hp;
         UpdateHpBar();
+        
 
 
     }
@@ -47,6 +49,6 @@ public class Enemy : MonoBehaviour
     void UpdateHpBar()
     {
         float hpRatio = (float)currentHp / hp;
-        hpBarForeground.localScale = new Vector3(hpRatio, 1f, 1f);
+        hpBarForeground.localScale = new Vector3(hpBarForeground.localScale.x*hpRatio, hpBarForeground.localScale.y * hpRatio, 1f);
     }
 }
