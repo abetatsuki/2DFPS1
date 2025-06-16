@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 42753492}
   - component: {fileID: 42753491}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: UI1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 491121101}
   - component: {fileID: 491121100}
   m_Layer: 5
-  m_Name: GameOver
+  m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 631556776}
   - component: {fileID: 631556775}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 804481726}
   - component: {fileID: 804481728}
   m_Layer: 5
-  m_Name: score
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1240,7 +1240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1247141401}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1278,7 +1278,7 @@ GameObject:
   - component: {fileID: 1675491936}
   - component: {fileID: 1675491938}
   m_Layer: 0
-  m_Name: Alien 4
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 1710594062}
   - component: {fileID: 1710594061}
   m_Layer: 0
-  m_Name: 2
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1535,7 +1535,7 @@ GameObject:
   - component: {fileID: 1792814272}
   - component: {fileID: 1792814273}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Menuscript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1651,7 +1651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1844981251}
   m_Layer: 0
-  m_Name: z
+  m_Name: ...
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1684,7 +1684,7 @@ GameObject:
   - component: {fileID: 2024498951}
   - component: {fileID: 2024498952}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: EnemyGeneretor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1729,7 +1729,7 @@ SceneRoots:
   - {fileID: 2024498951}
   - {fileID: 1710594062}
   - {fileID: 619394802}
-  - {fileID: 631556778}
-  - {fileID: 1825156790}
   - {fileID: 1792814272}
   - {fileID: 42753494}
+  - {fileID: 631556778}
+  - {fileID: 1825156790}
