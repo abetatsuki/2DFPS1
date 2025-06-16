@@ -44,8 +44,20 @@ public class Bullet : MonoBehaviour
             {
                 enemy.TakeDamage(damage); // ダメージを与える
             }
-            
-         
+            if (explosionEffect != null)
+            {
+                GameObject effect = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+                Destroy(effect, explosionEffectDuration); // 一定時間後にエフェクトを削除
+            }
+
+            // --- 爆発音を再生 ---
+            if (explosionSound != null)
+            {
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+            }
+
+
+
 
             // 敵を消す
             Destroy(this.gameObject);    // 弾を消す
