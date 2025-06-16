@@ -11,6 +11,10 @@ public class Bullet : MonoBehaviour
    
     private Rigidbody2D rb;
     public int damage = 1;
+    public AudioClip explosionSound;     // 爆発音
+    public GameObject explosionEffect;   // 爆発エフェクトのPrefab
+    public float explosionEffectDuration = 1.5f; // エフェクトの消去タイミング
+
 
     void Start()
     {
