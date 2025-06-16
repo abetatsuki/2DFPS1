@@ -8,6 +8,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     public TMP_Text[] menuItems;       // TextMeshProで表示するメニュー項目
     private int selectedIndex = 0;
     private bool isPaused = false;
+    public AudioClip SelectSound;
 
     void Start()
     {
@@ -19,6 +20,11 @@ public class PauseAndBossMenuController : MonoBehaviour
         // ESCキーでポーズ
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (SelectSound != null)
+            {
+                AudioSource.PlayClipAtPoint(SelectSound, transform.position);
+                Debug.Log("ok");
+            }
             if (isPaused)
                 Resume();
             else
