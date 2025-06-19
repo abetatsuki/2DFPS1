@@ -12,41 +12,36 @@ public class EnemyGeneretor : MonoBehaviour
     private bool isBossMode = false;
     public GameObject BossPrefab;
     private GameObject bossInstance;
-    public bool isboss;
-
-
-    private GameObject boss;               // ボスを保持
+    public bool isBossSpawned = false;
 
     void Start()
     {
-        // ボスを探す（"Boss"という名前でヒエラルキーにある場合）
-        boss = GameObject.Find("Boss");
         InvokeRepeating("SpawnEnemy", 1f, spawnInterval);
     }
 
     void Update()
     {
-        if (Score.score == 100 && !isboss)
+        // スコア100到達でボス生成
+        if (Score.score >= 100 && !isBossSpawned)
         {
-            isboss = true;
             SpawnBoss();
+            isBossSpawned = true;
         }
-        boss = GameObject.Find("Boss");
 
-        if (boss != null && !isBossMode)
+        // ボス生成後、状態を切り替え
+        if (bossInstance != null && !isBossMode)
         {
             isBossMode = true;
             CancelInvoke("SpawnEnemy");
             InvokeRepeating("SpawnEnemy", 0f, bossSpawnInterval);
         }
-        else if (boss == null && isBossMode)
+        else if (bossInstance == null && isBossMode)
         {
             isBossMode = false;
             CancelInvoke("SpawnEnemy");
             InvokeRepeating("SpawnEnemy", 1f, spawnInterval);
         }
     }
-
 
     void SpawnEnemy()
     {
@@ -56,11 +51,10 @@ public class EnemyGeneretor : MonoBehaviour
         EnemyScale.localScale = new Vector3(randomScale, randomScale, 1f);
         Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
+
     public void SpawnBoss()
     {
-        // ボス出現
-        boss = Instantiate(BossPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        bossInstance = Instantiate(BossPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         Debug.Log("ボス登場！");
     }
-
 }
