@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
 
         // 弾を発射（スペースキー）
-        if (Input.GetKeyDown(KeyCode.Space)&&Time.timeScale==1)
+        if (Input.GetKey(KeyCode.Space)&&Time.timeScale==1)
         {
             Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
         }
