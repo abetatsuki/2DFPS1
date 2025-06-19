@@ -100,11 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48b698fe809c324f92d946b0225017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  hp: 100
-  currentHp: 100
-  Boss: 1
-  hpBarForeground: {fileID: 8169073269643216185}
+  Speed: 3
+  Hp: 10
+  CurrentHp: 10
+  HPBarForeground: {fileID: 1976755052281384756}
 --- !u!50 &-6993827138891355187
 Rigidbody2D:
   serializedVersion: 4

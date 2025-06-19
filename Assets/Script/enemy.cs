@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 3f;
+    public float Speed = 3f;
     private Rigidbody2D rb;
-    public int hp = 10;
-    public int currentHp ;
-   
+    public int Hp ;
+    public int CurrentHp ;
 
-    public Transform hpBarForeground; // 緑色バーのTransform
+    public Transform HPBarForeground; // 緑色バーのTransform
+    private Vector3 originalForegroundScale;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         // 下方向に一定速度で移動させる
-        rb.velocity = Vector2.down * speed;
-        currentHp = hp;
+        rb.velocity = Vector2.down * Speed;
+        CurrentHp = Hp;
+        originalForegroundScale = HPBarForeground.localScale;
         UpdateHpBar();
-        
+       
+        Debug.Log(originalForegroundScale);
 
 
     }
@@ -36,11 +38,11 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        currentHp -= damage;
-        currentHp = Mathf.Clamp(currentHp, 0, hp);
-        Debug.Log("Enemy HP: " + hp);
+        CurrentHp -= damage;
+        CurrentHp = Mathf.Clamp(CurrentHp, 0, Hp);
+        Debug.Log("Enemy HP: " + Hp);
 
-        if (currentHp<= 0)
+        if (CurrentHp<= 0)
         {
             Destroy(gameObject); // 敵オブジェクトを消す
             Score.score++;
@@ -48,7 +50,7 @@ public class Enemy : MonoBehaviour
     }
     void UpdateHpBar()
     {
-        float hpRatio = (float)currentHp / hp;
-        hpBarForeground.localScale = new Vector3(hpBarForeground.localScale.x*hpRatio, hpBarForeground.localScale.y * hpRatio, 1f);
+        float hpRatio = (float)CurrentHp / Hp;
+        HPBarForeground.localScale = new Vector3(originalForegroundScale.x*hpRatio, originalForegroundScale.y, originalForegroundScale.z);
     }
 }
