@@ -30,6 +30,7 @@ public class Score : MonoBehaviour
         
 
         textMeshProUGUI.text = ("Score") + score;
+        
     }
 }
 

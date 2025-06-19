@@ -10,6 +10,9 @@ public class EnemyGeneretor : MonoBehaviour
     public float xRange = 8f;              // 出現範囲（X座標の幅）
     public Transform EnemyScale;
     private bool isBossMode = false;
+    public GameObject BossPrefab;
+    private GameObject bossInstance;
+    public bool isboss;
 
 
     private GameObject boss;               // ボスを保持
@@ -23,6 +26,11 @@ public class EnemyGeneretor : MonoBehaviour
 
     void Update()
     {
+        if (Score.score == 100 && !isboss)
+        {
+            isboss = true;
+            SpawnBoss();
+        }
         boss = GameObject.Find("Boss");
 
         if (boss != null && !isBossMode)
@@ -47,6 +55,12 @@ public class EnemyGeneretor : MonoBehaviour
         Vector3 spawnPosition = new Vector3(x, transform.position.y, 0);
         EnemyScale.localScale = new Vector3(randomScale, randomScale, 1f);
         Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+    }
+    public void SpawnBoss()
+    {
+        // ボス出現
+        boss = Instantiate(BossPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        Debug.Log("ボス登場！");
     }
 
 }

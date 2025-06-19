@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 3
-  Hp: 10
-  CurrentHp: 10
+  Hp: 1111
+  CurrentHp: 1111
   HPBarForeground: {fileID: 1976755052281384756}
 --- !u!50 &-6993827138891355187
 Rigidbody2D:
