@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15a796d3fc2a96439f6e93fd9fc04ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inspectorscore: 0
+  inspectorscore: 99
 --- !u!1 &852485701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,9 +1375,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1354597413089737796, guid: d6cba9c816ee7314ca9efff75a115e98, type: 3}
+      propertyPath: Hp
+      value: 1111
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354597413089737796, guid: d6cba9c816ee7314ca9efff75a115e98, type: 3}
+      propertyPath: CurrentHp
+      value: 1111
+      objectReference: {fileID: 0}
     - target: {fileID: 5916172185420838756, guid: d6cba9c816ee7314ca9efff75a115e98, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916172185420838756, guid: d6cba9c816ee7314ca9efff75a115e98, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6768264367935210397, guid: d6cba9c816ee7314ca9efff75a115e98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2014,7 +2026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2024498951
 Transform:
   m_ObjectHideFlags: 0
@@ -2043,7 +2055,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5496398620625083049, guid: aecd131be537de24aa5ed5c3a2e7eb26, type: 3}
-  spawnInterval: 1
+  spawnInterval: 2
+  bossSpawnInterval: 0.1
   xRange: 8
   EnemyScale: {fileID: 4874204041184584094, guid: aecd131be537de24aa5ed5c3a2e7eb26, type: 3}
 --- !u!1660057539 &9223372036854775807

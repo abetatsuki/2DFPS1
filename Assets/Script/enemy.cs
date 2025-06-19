@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     public int Hp ;
     public int CurrentHp ;
-
+    private bool isDead = false;
     public Transform HPBarForeground; // 緑色バーのTransform
     private Vector3 originalForegroundScale;
     void Start()
@@ -38,12 +38,14 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
         CurrentHp -= damage;
         CurrentHp = Mathf.Clamp(CurrentHp, 0, Hp);
         Debug.Log("Enemy HP: " + Hp);
 
         if (CurrentHp<= 0)
         {
+            isDead = true;
             Destroy(gameObject); // 敵オブジェクトを消す
             Score.score++;
         }
