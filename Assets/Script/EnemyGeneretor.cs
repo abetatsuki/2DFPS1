@@ -21,6 +21,13 @@ public class EnemyGeneretor : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            CancelInvoke("SpawnEnemy"); // 敵生成停止
+            isBossSpawned = false;      // ボスフラグリセット
+            return;
+        }
+
         // スコア100到達でボス生成
         if (Score.score >= 100 && !isBossSpawned)
         {
@@ -42,6 +49,8 @@ public class EnemyGeneretor : MonoBehaviour
             InvokeRepeating("SpawnEnemy", 1f, spawnInterval);
         }
     }
+
+
 
     void SpawnEnemy()
     {
