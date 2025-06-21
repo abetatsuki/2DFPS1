@@ -96,6 +96,10 @@ public class PauseAndBossMenuController : MonoBehaviour
             Debug.Log("ÉQÅ[ÉÄÇèIóπÇµÇ‹Ç∑");
             Application.Quit();
         }
+        else if (selectedItem == "OPTION")
+        {
+            SceneManager.LoadScene("BOSS");
+        }
     }
 
     void UpdateMenu()

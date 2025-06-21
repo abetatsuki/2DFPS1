@@ -16,6 +16,7 @@ public class EnemyGeneretor : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         InvokeRepeating("SpawnEnemy", 1f, spawnInterval);
     }
 
