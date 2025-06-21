@@ -84,12 +84,15 @@ public class PauseAndBossMenuController : MonoBehaviour
 
         if (selectedItem == "START")
         {
+            menuUI.SetActive(false);
             Time.timeScale = 1f; // 必ずゲーム速度リセット
+           
             if (scene  != "SampleScene")
             {
                 SceneManager.LoadScene("SampleScene"); // シーン遷移
             }
             
+
         }
         else if (selectedItem == "END")
         {

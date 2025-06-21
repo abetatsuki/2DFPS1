@@ -24,19 +24,32 @@ public class EnemyGeneretor : MonoBehaviour
     {
         if (Time.timeScale == 0)
         {
-            CancelInvoke("SpawnEnemy"); // 敵生成停止
-            isBossSpawned = false;      // ボスフラグリセット
+            CancelInvoke("SpawnEnemy");
+            // isBossSpawned = false; // 状態はゲーム仕様に応じて管理
             return;
         }
 
-        // スコア100到達でボス生成
+        // 敵生成が止まっている場合に再開
+        if (!IsInvoking("SpawnEnemy"))
+        {
+            if (isBossMode)
+            {
+                InvokeRepeating("SpawnEnemy", 0f, bossSpawnInterval);
+            }
+            else
+            {
+                InvokeRepeating("SpawnEnemy", 1f, spawnInterval);
+            }
+        }
+
+        // ボス出現判定
         if (Score.score >= 100 && !isBossSpawned)
         {
             SpawnBoss();
             isBossSpawned = true;
         }
 
-        // ボス生成後、状態を切り替え
+        // ボス生成後の状態切り替え
         if (bossInstance != null && !isBossMode)
         {
             isBossMode = true;
@@ -50,6 +63,7 @@ public class EnemyGeneretor : MonoBehaviour
             InvokeRepeating("SpawnEnemy", 1f, spawnInterval);
         }
     }
+
 
 
 
