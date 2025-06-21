@@ -85,7 +85,7 @@ public class PauseAndBossMenuController : MonoBehaviour
         if (selectedItem == "START")
         {
             Time.timeScale = 1f; // 必ずゲーム速度リセット
-            if (scene == "SampleScene")
+            if (scene! == "SampleScene")
             {
                 SceneManager.LoadScene("SampleScene"); // シーン遷移
             }
