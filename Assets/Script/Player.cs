@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5f;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-    public GameObject gameOverPanel;
+
     public int i;
     public ScoreBord scoreBoard;
     private int score = 0;
@@ -39,18 +39,15 @@ public class Player : MonoBehaviour
     {
         if (collider.CompareTag("Enemy")) // "Enemy" タグのオブジェクトにぶつかったら
         {
-            gameOverPanel.SetActive(true); // ゲームオーバーを表示
+          
+            scoreBoard.ShowScoreBoard(score);
         }
 
 
 
 
     }
-    public void GameOver()
-    {
-        // 例えばここでゲーム終了処理
-        scoreBoard.ShowScoreBoard(score);
-    }
+   
 
 
 }
