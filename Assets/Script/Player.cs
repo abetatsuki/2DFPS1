@@ -9,10 +9,11 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5f;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-
+    public bool stopbullet =false;
     public int i;
     public ScoreBord scoreBoard;
     public GameObject sss;
+    public bool MenuUI = false;
 
     void Update()
     {
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
 
 
         // 弾を発射（スペースキー）
-        if (Input.GetKey(KeyCode.Space)&&Time.timeScale==1)
+        if (Input.GetKey(KeyCode.Space)&&Time.timeScale==1&&!stopbullet)
         {
             Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
         }
@@ -40,7 +41,8 @@ public class Player : MonoBehaviour
     {
         if (collider.CompareTag("Enemy")) // "Enemy" タグのオブジェクトにぶつかったら
         {
-          
+          stopbullet = true;
+            MenuUI = true;
             scoreBoard.ShowScoreBoard(Score.score);
             sss.SetActive(false);
             
