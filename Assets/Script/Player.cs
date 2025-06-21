@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 
 public class Player : MonoBehaviour
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
     public Transform bulletSpawn;
     public GameObject gameOverPanel;
     public int i;
+    public ScoreBord scoreBoard;
+    private int score = 0;
     void Update()
     {
         // ‰¡ˆÚ“®
@@ -43,6 +46,11 @@ public class Player : MonoBehaviour
 
 
     }
-    
-    
+    public void GameOver()
+    {
+        // —á‚¦‚Î‚±‚±‚ÅƒQ[ƒ€I—¹ˆ—
+        scoreBoard.ShowScoreBoard(score);
+    }
+
+
 }
