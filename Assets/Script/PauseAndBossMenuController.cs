@@ -10,6 +10,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     private bool isPaused = false;
     public AudioClip SelectSound;
     AudioSource audioSource;
+    string scene;
     void Start()
     {
         menuUI.SetActive(false); // 最初は非表示
@@ -18,6 +19,8 @@ public class PauseAndBossMenuController : MonoBehaviour
 
     void Update()
     {
+         scene = SceneManager.GetActiveScene().name;
+
         // ESCキーでポーズ
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -82,7 +85,11 @@ public class PauseAndBossMenuController : MonoBehaviour
         if (selectedItem == "START")
         {
             Time.timeScale = 1f; // 必ずゲーム速度リセット
-            SceneManager.LoadScene("SampleScene"); // シーン遷移
+            if (scene == "SampleScene")
+            {
+                SceneManager.LoadScene("SampleScene"); // シーン遷移
+            }
+            
         }
         else if (selectedItem == "END")
         {
