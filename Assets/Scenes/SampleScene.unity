@@ -1578,6 +1578,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 1675491935}
   gameOverPanel: {fileID: 491121098}
   i: 0
+  scoreBoard: {fileID: 0}
 --- !u!1 &1710594060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,6 +1943,37 @@ Transform:
   - {fileID: 1728066274}
   m_Father: {fileID: 42753494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1849520371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1849520372}
+  m_Layer: 0
+  m_Name: ScoreBordManeger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1849520372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849520371}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.051817, y: 3.0140688, z: -0.14975102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1929776196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,3 +2113,4 @@ SceneRoots:
   - {fileID: 631556778}
   - {fileID: 1825156790}
   - {fileID: 2024498951}
+  - {fileID: 1849520372}
