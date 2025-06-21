@@ -1715,6 +1715,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 1675491935}
   i: 0
   scoreBoard: {fileID: 1849520373}
+  sss: {fileID: 804481724}
 --- !u!1 &1710594060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,7 +2125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scorePanel: {fileID: 1929776196}
-  scoreText: {fileID: 1052166585}
+  FinalscoreText: {fileID: 1052166585}
 --- !u!1 &1929776196
 GameObject:
   m_ObjectHideFlags: 0

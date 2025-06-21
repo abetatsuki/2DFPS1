@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
 
     public int i;
     public ScoreBord scoreBoard;
-    
+    public GameObject sss;
+
     void Update()
     {
         // ‰¡ˆÚ“®
@@ -41,6 +42,9 @@ public class Player : MonoBehaviour
         {
           
             scoreBoard.ShowScoreBoard(Score.score);
+            sss.SetActive(false);
+            
+
         }
 
 
