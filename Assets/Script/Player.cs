@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     public int i;
     public ScoreBord scoreBoard;
-    private int score = 0;
+    
     void Update()
     {
         // 横移動
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         if (collider.CompareTag("Enemy")) // "Enemy" タグのオブジェクトにぶつかったら
         {
           
-            scoreBoard.ShowScoreBoard(score);
+            scoreBoard.ShowScoreBoard(Score.score);
         }
 
 
