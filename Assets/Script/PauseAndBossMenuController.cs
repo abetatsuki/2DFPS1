@@ -92,6 +92,7 @@ public class PauseAndBossMenuController : MonoBehaviour
 
         if (selectedItem == "START")
         {
+            menuPanel.SetActive(false);
             menuUI.SetActive(false);
             Time.timeScale = 1f; // 必ずゲーム速度リセット
            
