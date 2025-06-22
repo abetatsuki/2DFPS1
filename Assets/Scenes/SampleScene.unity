@@ -2427,7 +2427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5496398620625083049, guid: aecd131be537de24aa5ed5c3a2e7eb26, type: 3}
-  spawnInterval: 1
+  spawnInterval: 0.5
   bossSpawnInterval: 0.0001
   xRange: 8
   EnemyScale: {fileID: 4874204041184584094, guid: aecd131be537de24aa5ed5c3a2e7eb26, type: 3}
