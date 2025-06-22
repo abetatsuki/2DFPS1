@@ -21,7 +21,8 @@ public class PauseAndBossMenuController : MonoBehaviour
 
     void Update()
     {
-         scene = SceneManager.GetActiveScene().name;
+        
+        scene = SceneManager.GetActiveScene().name;
 
         // ESCキーでポーズ
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -88,6 +89,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     {
         string selectedItem = menuItems[selectedIndex].text;
 
+        Debug.Log("生の文字列:[" + selectedItem + "]");
         Debug.Log(selectedItem + " が選択されました");
 
         if (selectedItem == "START")
@@ -110,7 +112,9 @@ public class PauseAndBossMenuController : MonoBehaviour
         }
         else if (selectedItem == "BACKMENU")
         {
+            Debug.Log("AAA");
             SceneManager.LoadScene("BOSS");
+            
         }
     }
 
