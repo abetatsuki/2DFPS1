@@ -7,6 +7,10 @@ public class BOSSMENU : MonoBehaviour
     private int selectedIndex = 0;
     public AudioClip SelectSound;
     AudioSource audioSource;
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
