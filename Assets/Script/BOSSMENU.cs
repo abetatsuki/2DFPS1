@@ -5,12 +5,15 @@ public class BOSSMENU : MonoBehaviour
 {
     public TMP_Text[] menuItems; // InspectorでTextを配列でセット
     private int selectedIndex = 0;
+    public AudioClip SelectSound;
+    AudioSource audioSource;
 
     void Update()
     {
         // 上キー
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            audioSource.PlayOneShot(SelectSound);
             selectedIndex--;
             if (selectedIndex < 0) selectedIndex = menuItems.Length - 1;
             UpdateMenu();
@@ -19,6 +22,7 @@ public class BOSSMENU : MonoBehaviour
         // 下キー
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
+            audioSource.PlayOneShot(SelectSound);
             selectedIndex++;
             if (selectedIndex >= menuItems.Length) selectedIndex = 0;
             UpdateMenu();
@@ -27,6 +31,7 @@ public class BOSSMENU : MonoBehaviour
         // 決定キー
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            audioSource.PlayOneShot(SelectSound);
             Debug.Log(menuItems[selectedIndex].text + " が選択されました");
 
             if (menuItems[selectedIndex].text == "END")
@@ -50,6 +55,14 @@ public class BOSSMENU : MonoBehaviour
                 menuItems[i].color = Color.yellow; // 選択中
             else
                 menuItems[i].color = Color.white; // 未選択
+        }
+    }
+    public void PlaySound(AudioClip clip, Vector3 position)
+    {
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, position);
+            Debug.Log("Sound Played: " + clip.name);
         }
     }
 }
