@@ -1,7 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
-
+ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
             MenuUI = true;
             scoreBoard.ShowScoreBoard(Score.score);
             sss.SetActive(false);
-            
+            StartCoroutine(ReturnToBossSceneAfterDelay(3f));
 
         }
 
@@ -53,7 +53,12 @@ public class Player : MonoBehaviour
 
 
     }
-   
+    private System.Collections.IEnumerator ReturnToBossSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("BOSS"); // シーン名「BOSS」に戻る
+    }
+
 
 
 }
