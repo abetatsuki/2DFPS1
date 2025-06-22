@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseAndBossMenuController : MonoBehaviour
 {
-    public GameObject menuUI;          // ポーズメニュー全体(Canvas)
+    public GameObject menuUI;
+    public GameObject menuPanel;// ポーズメニュー全体(Canvas)
     public TMP_Text[] menuItems;       // TextMeshProで表示するメニュー項目
     private int selectedIndex = 0;
     private bool isPaused = false;
@@ -32,6 +33,8 @@ public class PauseAndBossMenuController : MonoBehaviour
                 else
                     Pause();
                 audioSource.PlayOneShot(SelectSound);
+                
+
             }
         }
 
@@ -67,8 +70,9 @@ public class PauseAndBossMenuController : MonoBehaviour
     void Pause()
     {
         menuUI.SetActive(true);   // メニュー表示
-        Time.timeScale = 0f;      // ゲーム停止
+        Time.timeScale = 0f;  // ゲーム停止
         isPaused = true;
+        menuPanel.SetActive(true);
         UpdateMenu();             // 最初の選択項目ハイライト
     }
 
@@ -77,6 +81,7 @@ public class PauseAndBossMenuController : MonoBehaviour
         menuUI.SetActive(false);  // メニュー非表示
         Time.timeScale = 1f;      // ゲーム再開
         isPaused = false;
+        menuPanel.SetActive(false);
     }
 
     void ExecuteMenuItem()
