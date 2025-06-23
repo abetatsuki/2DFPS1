@@ -28,9 +28,9 @@ public class PauseAndBossMenuController : MonoBehaviour
 
     void Update()
     {
-        
+       
         scene = SceneManager.GetActiveScene().name;
-
+        
         // ESCキーでポーズ
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -144,6 +144,13 @@ public class PauseAndBossMenuController : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(clip, position);
             Debug.Log("Sound Played: " + clip.name);
+        }
+    }
+    public void ScoreCount()
+    {
+        if (Score.score == 100)
+        {
+            bgmAudioSource.volume = 0f;
         }
     }
 }

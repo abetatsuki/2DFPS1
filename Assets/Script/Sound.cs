@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sound : MonoBehaviour
 {
     public AudioSource cAudioSource;
-    public AudioSource bAudioSource;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +15,17 @@ public class Sound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Sound1();
+    }
+    public void Sound1()
+    {
+
         if (Score.score == 100)
         {
-           cAudioSource.Play();
+            
+            cAudioSource.Play();
 
         }
+
     }
 }
