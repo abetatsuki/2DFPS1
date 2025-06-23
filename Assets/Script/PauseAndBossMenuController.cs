@@ -11,12 +11,15 @@ public class PauseAndBossMenuController : MonoBehaviour
     private bool isPaused = false;
     public AudioClip SelectSound; 
      AudioSource seAudioSource;
+    AudioSource bgmAudioSource;
     string scene;
     public Player player;
     void Start()
     {
         menuUI.SetActive(false); // 最初は非表示
-        seAudioSource = GetComponent<AudioSource>();
+        var sources = GetComponents<AudioSource>();
+        seAudioSource = sources[0];  // 0番目をSE用
+        bgmAudioSource = sources[1]; // 1番目をBGM用
     }
 
     void Update()
@@ -72,7 +75,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     {
         menuUI.SetActive(true);   // メニュー表示
         Time.timeScale = 0f;  // ゲーム停止
-        
+        bgmAudioSource.Pause();
         isPaused = true;
         menuPanel.SetActive(true);
         UpdateMenu();             // 最初の選択項目ハイライト
@@ -82,7 +85,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     {
         menuUI.SetActive(false);  // メニュー非表示
         Time.timeScale = 1f;      // ゲーム再開
-       
+        bgmAudioSource.UnPause();
         isPaused = false;
         menuPanel.SetActive(false);
     }
@@ -99,7 +102,7 @@ public class PauseAndBossMenuController : MonoBehaviour
             menuPanel.SetActive(false);
             menuUI.SetActive(false);
             Time.timeScale = 1f; // 必ずゲーム速度リセット
-           
+            bgmAudioSource.UnPause();
             if (scene  != "SampleScene")
             {
                 SceneManager.LoadScene("SampleScene"); // シーン遷移
