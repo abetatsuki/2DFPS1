@@ -20,6 +20,10 @@ public class PauseAndBossMenuController : MonoBehaviour
         var sources = GetComponents<AudioSource>();
         seAudioSource = sources[0];  // 0番目をSE用
         bgmAudioSource = sources[1]; // 1番目をBGM用
+
+        // 音量調整（0-1の範囲）
+        seAudioSource.volume = 1.0f;   // 効果音は最大音量
+        bgmAudioSource.volume = 0.2f;  // BGMは控えめに（20%）
     }
 
     void Update()

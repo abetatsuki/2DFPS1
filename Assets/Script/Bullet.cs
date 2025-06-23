@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-  
-    
-  
+
+
+
     public float speed = 10f; // 弾のスピード
-   
+
     private Rigidbody2D rb;
     public int damage = 1;
     public AudioClip explosionSound;     // 爆発音
@@ -34,8 +34,8 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-       
-       
+
+
         if (other.CompareTag("Enemy"))  // "Enemy" タグのときだけ敵を消す
         {
             //GetComponent<Enemy>() で「そのGameObjectにくっついてるEnemyスクリプト」を取得これで相手のスクリプトにアクセスできる
@@ -61,7 +61,7 @@ public class Bullet : MonoBehaviour
 
             // 敵を消す
             Destroy(this.gameObject);    // 弾を消す
-           
+
 
         }
     }

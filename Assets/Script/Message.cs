@@ -6,7 +6,7 @@ public class TextDisplayFor3Seconds : MonoBehaviour
 {
     public TMP_Text targetText; // Inspectorでセット
 
-    private float displayDuration = 3f;
+    private float displayDuration = 1f;
     private float changeInterval = 0.1f; // 色を変える間隔（秒）
 
     void Start()
@@ -27,7 +27,7 @@ public class TextDisplayFor3Seconds : MonoBehaviour
             elapsed += changeInterval;
         }
 
-        HideText();
+        HideText();  // ループ終了後に1回だけ呼ぶ
     }
 
     void HideText()
