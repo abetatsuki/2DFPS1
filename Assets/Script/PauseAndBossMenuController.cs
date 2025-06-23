@@ -9,16 +9,14 @@ public class PauseAndBossMenuController : MonoBehaviour
     public TMP_Text[] menuItems;       // TextMeshProで表示するメニュー項目
     private int selectedIndex = 0;
     private bool isPaused = false;
-    public AudioClip SelectSound;
-   
-    public AudioSource seAudioSource;
-   public AudioSource bgmAudioSource;
+    public AudioClip SelectSound; 
+     AudioSource seAudioSource;
     string scene;
     public Player player;
     void Start()
     {
         menuUI.SetActive(false); // 最初は非表示
-        
+        seAudioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -74,7 +72,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     {
         menuUI.SetActive(true);   // メニュー表示
         Time.timeScale = 0f;  // ゲーム停止
-        bgmAudioSource.Pause();
+        
         isPaused = true;
         menuPanel.SetActive(true);
         UpdateMenu();             // 最初の選択項目ハイライト
@@ -84,7 +82,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     {
         menuUI.SetActive(false);  // メニュー非表示
         Time.timeScale = 1f;      // ゲーム再開
-        bgmAudioSource.UnPause();
+       
         isPaused = false;
         menuPanel.SetActive(false);
     }
