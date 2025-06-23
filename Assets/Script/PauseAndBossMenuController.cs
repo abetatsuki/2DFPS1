@@ -10,6 +10,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     private int selectedIndex = 0;
     private bool isPaused = false;
     public AudioClip SelectSound;
+    public AudioClip BGM;
     AudioSource audioSource;
     string scene;
     public Player player;
@@ -72,6 +73,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     {
         menuUI.SetActive(true);   // メニュー表示
         Time.timeScale = 0f;  // ゲーム停止
+        audioSource.Pause();
         isPaused = true;
         menuPanel.SetActive(true);
         UpdateMenu();             // 最初の選択項目ハイライト
@@ -81,6 +83,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     {
         menuUI.SetActive(false);  // メニュー非表示
         Time.timeScale = 1f;      // ゲーム再開
+        audioSource.UnPause();
         isPaused = false;
         menuPanel.SetActive(false);
     }
