@@ -10,14 +10,15 @@ public class PauseAndBossMenuController : MonoBehaviour
     private int selectedIndex = 0;
     private bool isPaused = false;
     public AudioClip SelectSound;
-    public AudioClip BGM;
-    AudioSource audioSource;
+   
+    public AudioSource seAudioSource;
+   public AudioSource bgmAudioSource;
     string scene;
     public Player player;
     void Start()
     {
         menuUI.SetActive(false); // 最初は非表示
-        audioSource = GetComponent<AudioSource>(); // 追加！！
+        
     }
 
     void Update()
@@ -34,7 +35,7 @@ public class PauseAndBossMenuController : MonoBehaviour
                     Resume();
                 else
                     Pause();
-                audioSource.PlayOneShot(SelectSound);
+                seAudioSource.PlayOneShot(SelectSound);
                 
 
             }
@@ -45,7 +46,7 @@ public class PauseAndBossMenuController : MonoBehaviour
             // 上キー
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                audioSource.PlayOneShot(SelectSound);
+                seAudioSource.PlayOneShot(SelectSound);
                 selectedIndex--;
                 if (selectedIndex < 0) selectedIndex = menuItems.Length - 1;
                 UpdateMenu();
@@ -54,7 +55,7 @@ public class PauseAndBossMenuController : MonoBehaviour
             // 下キー
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                audioSource.PlayOneShot(SelectSound);
+                seAudioSource.PlayOneShot(SelectSound);
                 selectedIndex++;
                 if (selectedIndex >= menuItems.Length) selectedIndex = 0;
                 UpdateMenu();
@@ -63,7 +64,7 @@ public class PauseAndBossMenuController : MonoBehaviour
             // 決定キー
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                audioSource.PlayOneShot(SelectSound);
+                seAudioSource.PlayOneShot(SelectSound);
                 ExecuteMenuItem();
             }
         }
@@ -73,7 +74,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     {
         menuUI.SetActive(true);   // メニュー表示
         Time.timeScale = 0f;  // ゲーム停止
-        audioSource.Pause();
+        bgmAudioSource.Pause();
         isPaused = true;
         menuPanel.SetActive(true);
         UpdateMenu();             // 最初の選択項目ハイライト
@@ -83,7 +84,7 @@ public class PauseAndBossMenuController : MonoBehaviour
     {
         menuUI.SetActive(false);  // メニュー非表示
         Time.timeScale = 1f;      // ゲーム再開
-        audioSource.UnPause();
+        bgmAudioSource.UnPause();
         isPaused = false;
         menuPanel.SetActive(false);
     }
