@@ -14,9 +14,11 @@ public class EnemyGeneretor : MonoBehaviour
     private GameObject bossInstance;
     public bool isBossSpawned = false;
 
+    private int nextScoreThreshold = 10;   // ★ 次のスコア目標
+    private float minSpawnInterval = 0.1f; // ★ 最短間隔
+
     void Start()
     {
-
         Time.timeScale = 1f;
         InvokeRepeating("SpawnEnemy", 1f, spawnInterval);
     }
@@ -26,8 +28,14 @@ public class EnemyGeneretor : MonoBehaviour
         if (Time.timeScale == 0)
         {
             CancelInvoke("SpawnEnemy");
-            // isBossSpawned = false; // 状態はゲーム仕様に応じて管理
             return;
+        }
+
+        // スコア10ごとに間隔を短縮（ボスモード中はしない）
+        if (!isBossMode && Score.score >= nextScoreThreshold)
+        {
+            AdjustSpawnInterval();
+            nextScoreThreshold += 10;
         }
 
         // 敵生成が止まっている場合に再開
@@ -65,8 +73,13 @@ public class EnemyGeneretor : MonoBehaviour
         }
     }
 
-
-
+    void AdjustSpawnInterval() // ★ 追加メソッド
+    {
+        spawnInterval = Mathf.Max(minSpawnInterval, spawnInterval - 0.1f); // 最短0.5秒まで
+        CancelInvoke("SpawnEnemy");
+        InvokeRepeating("SpawnEnemy", 1f, spawnInterval);
+        Debug.Log("出現間隔変更: " + spawnInterval + " 秒 (スコア:" + Score.score + ")");
+    }
 
     void SpawnEnemy()
     {

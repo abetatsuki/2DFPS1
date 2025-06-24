@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15a796d3fc2a96439f6e93fd9fc04ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inspectorscore: 99
+  inspectorscore: 0
 --- !u!1 &852485701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2509,7 +2509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5496398620625083049, guid: aecd131be537de24aa5ed5c3a2e7eb26, type: 3}
-  spawnInterval: 0.5
+  spawnInterval: 1
   bossSpawnInterval: 0.0001
   xRange: 8
   EnemyScale: {fileID: 4874204041184584094, guid: aecd131be537de24aa5ed5c3a2e7eb26, type: 3}
